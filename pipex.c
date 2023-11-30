@@ -6,13 +6,13 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:38:18 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/11/29 04:39:00 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:45:24 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int main(int arc, char **arv)
+void	pipex(int f1, int f2)
 {
-	
+
 }
