@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:38:13 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/11/30 17:45:39 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/11/30 18:35:41 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@
 # include <sys/types.h>
 # include <sys/wait.h>
 
-void	pipex(int f1, int f2);
+void	ft_pipex(int f1, int f2, char *av);
 
 #endif
