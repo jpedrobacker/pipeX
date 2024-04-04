@@ -6,11 +6,11 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:38:18 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/11/30 18:28:23 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/04/04 14:06:58 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../inc/pipex.h"
 
 void	ft_pipex(int f1, int f2, char *av)
 {

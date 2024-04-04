@@ -1,34 +1,31 @@
-SRCS =		pipex.c
-
-OBJ =	$(SRCS:.c=.o)
-CC =	gcc
+NAME = pipex
+LIBFTPRINTF = libftprintf/libftprintf.a
+LIBFT = libftprintf/libft/libft.a
+CC = gcc
 CFLAGS = -Wall -Werror -Wextra
-NAME =	pipex.a
-LIBFTPRINTFDIR = ft_printf
-PRINTFNAME = libftprintf.a
-
-makelib:
-	make -C $(LIBFTPRINTFDIR)
-	cp $(LIBFTPRINTFDIR)/$(PRINTFNAME) .
-	mv $(PRINTFNAME) $(NAME)
-
-run: makelib
-	$(CC) mainpipex.c $(NAME) -o pipex
+SRC_DIR = src/
+FIND = $(shell find $(SRC_DIR))
+SRC = $(filter %.c, $(FIND))
 
 all: $(NAME)
 
-$(NAME):
-		ar -rcs $(NAME) $(OBJ)
+$(NAME): $(SRC)
+		$(CC) $(SRC) $(LIBFTPRINTF) -o $(NAME)
 
-.c.o:
-		$(CC) -c $(CFLAGS) $<
+checkpoint:
+	@git add -A
+	@git commit -m "checkpoint at $$(date '+%Y-%m-%dT%H:%M:%S%z')"
+	@git push
+	@echo Checkpoint created and pushed to remote
+
+lib:
+	@make -C libftprintf
 
 clean:
-		rm -rf $(OBJ)
-		cd $(LIBFTPRINTFDIR) && make clean
+		@make clean -C libftprintf
+		rm -rf $(NAME)
 
 fclean: clean
-		rm -rf $(NAME)
-		cd $(LIBFTPRINTFDIR) && make fclean
+		@make fclean -C libftprintf
 
-re: fclean all
+re: fclean lib all

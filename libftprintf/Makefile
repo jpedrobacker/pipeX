@@ -13,7 +13,7 @@ CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror
 NAME		=	libftprintf.a
 LIBFTNAME	=	libft.a
-LIBFTDIR	=	../libft
+LIBFTDIR	=	./libft
 
 all: $(NAME)
 
@@ -21,6 +21,7 @@ makelib:
 		make -C $(LIBFTDIR)
 		cp $(LIBFTDIR)/$(LIBFTNAME) .
 		mv $(LIBFTNAME) $(NAME)
+		make clean
 
 $(NAME): makelib $(OBJ)
 		ar -rcs $(NAME) $(OBJ)

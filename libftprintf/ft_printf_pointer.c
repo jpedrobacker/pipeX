@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 09:55:09 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/11/28 11:45:14 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/11/07 16:07:50 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	ft_putstrhex(char *s, int i)
 	j = i - 1;
 	while (j >= 0)
 	{
-		s[j] += 32;
+		s[j] = ft_tolower(s[j]);
 		write(1, &s[j], 1);
 		j--;
 	}

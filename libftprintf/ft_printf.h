@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 12:04:02 by jbergfel          #+#    #+#             */
-/*   Updated: 2023/11/28 11:43:40 by jbergfel         ###   ########.fr       */
+/*   Updated: 2023/11/07 16:08:04 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <strings.h>
 # include <limits.h>
 # include <stdint.h>
-# include "../libft/libft.h"
+# include "libft/libft.h"
 
 int		ft_printf(const char *format, ...);
 int		ft_printf_char(int c);
