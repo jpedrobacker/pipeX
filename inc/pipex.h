@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:38:13 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/04/04 14:27:53 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/04/08 18:33:18 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,22 @@
 # include <sys/types.h>
 # include <sys/wait.h>
 
-void	ft_pipex(int f1, int f2, char *av);
+typedef struct s_data
+{
+	char	**envp;
+	char	**av;
+	char	*cmd1;
+	char	*cmd2;
+	int		infile;
+	int		outfile;
+	int		pd[2];
+}	t_data;
+
+char	*env_path(char **env);
+void	print_error(char *str);
+void	to_free(char **res);
+void	pipex(t_data *data);
+void	process1(t_data *data);
+void	process2(t_data *data);
 
 #endif

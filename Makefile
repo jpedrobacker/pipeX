@@ -12,7 +12,10 @@ all: $(NAME)
 $(NAME): $(SRC)
 		$(CC) $(SRC) $(LIBFTPRINTF) -o $(NAME)
 
-checkpoint:
+test:
+	$(CC) test.c $(LIBFTPRINTF)
+
+git:
 	@git add -A
 	@git commit -m "checkpoint at $$(date '+%Y-%m-%dT%H:%M:%S%z')"
 	@git push
