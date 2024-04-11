@@ -48,6 +48,7 @@
 	return (0);
 }
 */
+/*
 int main()
 {
 	int fd[2];
@@ -82,4 +83,18 @@ int main()
 		ft_printf("Message from child: '%s'\n", bf);
 		exit(EXIT_SUCCESS);
 	}
+}
+*/
+
+int main (int ac, char **av, char **envp)
+{
+	char **eee = get_path(envp);
+	int i = 0;
+
+	while (eee[i])
+	{
+		ft_printf("%s\n", eee[i]);
+		i++;
+	}
+	return (0);
 }
