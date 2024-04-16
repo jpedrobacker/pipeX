@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:38:18 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/04/15 19:43:31 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/04/16 12:45:56 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ void	process1(t_data data, char **av, char **envp)
 	data.cmd = get_cmd(data.cmds_pth, data.cmds_arg[0]);
 	if (!data.cmd)
 	{
-		print_error("Error pipex\n");
 		to_free_child(&data);
+		to_free_parent(&data);
+		ft_putstr_fd("Error pipex\n", 2);
 		exit(127);
 	}
 	if (execve(data.cmd, data.cmds_arg, envp) == -1)
@@ -39,8 +40,9 @@ void	process2(t_data data, char **av, char **envp)
 	data.cmd = get_cmd(data.cmds_pth, data.cmds_arg[0]);
 	if (!data.cmd)
 	{
-		print_error("Error pipex\n");
 		to_free_child(&data);
+		to_free_parent(&data);
+		ft_putstr_fd("Error pipex\n", 2);
 		exit(127);
 	}
 	if (execve(data.cmd, data.cmds_arg, envp) == -1)

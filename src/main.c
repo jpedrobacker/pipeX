@@ -6,16 +6,11 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 10:36:52 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/04/15 19:44:24 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/04/16 13:02:53 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/pipex.h"
-
-void	pipex(t_data data)
-{
-
-}
 
 int	parent2(t_data *data)
 {
@@ -35,7 +30,13 @@ int	parent2(t_data *data)
 	return (error_code);
 }
 
-int main(int ac, char **av, char **envp)
+void	close_data(t_data *data)
+{
+	close(data->pd[0]);
+	close(data->pd[1]);
+}
+
+int	main(int ac, char **av, char **envp)
 {
 	t_data	data;
 	int		error;
@@ -58,8 +59,7 @@ int main(int ac, char **av, char **envp)
 	data.pid2 = fork();
 	if (data.pid2 == 0)
 		process2(data, av, envp);
-	close(data.pd[0]);
-	close(data.pd[1]);
+	close_data(&data);
 	error = parent2(&data);
 	to_free_parent(&data);
 	return (0);
