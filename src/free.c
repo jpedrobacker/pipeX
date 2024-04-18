@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 13:18:21 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/04/16 13:03:20 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/04/18 10:39:27 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 void	print_error(char *str)
 {
 	ft_putstr_fd(str, 2);
+	exit(1);
+}
+
+void	perror_print(char *str)
+{
+	perror(str);
 	exit(1);
 }
 

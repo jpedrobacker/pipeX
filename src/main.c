@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 10:36:52 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/04/16 13:02:53 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/04/18 10:44:08 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ int	parent2(t_data *data)
 	waitpid(data->pid2, &status2, 0);
 	if (WIFEXITED(status1))
 		error_code = WEXITSTATUS(status1);
-	printf("status 1: %i\n", error_code);
+	ft_printf("status 1: %i\n", error_code);
 	if (WIFEXITED(status2))
 		error_code = WEXITSTATUS(status2);
-	printf("status 2: %i\n", error_code);
+	ft_printf("status 2: %i\n", error_code);
 	return (error_code);
 }
 
@@ -42,15 +42,15 @@ int	main(int ac, char **av, char **envp)
 	int		error;
 
 	if (ac != 5)
-		print_error("Invalid args\n");
+		print_error("Invalid arguments\n");
 	data.infile = open(av[1], O_RDONLY);
 	if (data.infile < 0)
-		print_error("Invalid infile\n");
+		perror_print("Invalid infile\n");
 	data.outfile = open(av[ac - 1], O_CREAT | O_RDWR | O_TRUNC, 0777);
 	if (data.outfile < 0)
-		print_error("Invalid outfile\n");
+		perror_print("Invalid outfile\n");
 	if (pipe(data.pd) < 0)
-		print_error("Invalid pipe\n");
+		perror_print("Invalid pipe\n");
 	data.path = find_path(envp);
 	data.cmds_pth = ft_split(data.path, ':');
 	data.pid1 = fork();

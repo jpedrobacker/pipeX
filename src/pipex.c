@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:38:18 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/04/16 12:45:56 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/04/18 10:47:24 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	process1(t_data data, char **av, char **envp)
 	{
 		to_free_child(&data);
 		to_free_parent(&data);
-		ft_putstr_fd("Error pipex\n", 2);
+		ft_putstr_fd("Invalid command\n", 2);
 		exit(127);
 	}
 	if (execve(data.cmd, data.cmds_arg, envp) == -1)
@@ -42,7 +42,7 @@ void	process2(t_data data, char **av, char **envp)
 	{
 		to_free_child(&data);
 		to_free_parent(&data);
-		ft_putstr_fd("Error pipex\n", 2);
+		ft_putstr_fd("Invalid command\n", 2);
 		exit(127);
 	}
 	if (execve(data.cmd, data.cmds_arg, envp) == -1)
