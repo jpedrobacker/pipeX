@@ -6,7 +6,7 @@
 /*   By: jbergfel <jbergfel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 10:36:52 by jbergfel          #+#    #+#             */
-/*   Updated: 2024/04/18 10:44:08 by jbergfel         ###   ########.fr       */
+/*   Updated: 2024/04/19 11:14:21 by jbergfel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,8 @@ int	parent2(t_data *data)
 	waitpid(data->pid2, &status2, 0);
 	if (WIFEXITED(status1))
 		error_code = WEXITSTATUS(status1);
-	ft_printf("status 1: %i\n", error_code);
 	if (WIFEXITED(status2))
 		error_code = WEXITSTATUS(status2);
-	ft_printf("status 2: %i\n", error_code);
 	return (error_code);
 }
 
