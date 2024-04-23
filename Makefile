@@ -10,7 +10,7 @@ SRC = $(filter %.c, $(FIND))
 all: $(NAME)
 
 $(NAME): $(SRC)
-		$(CC) $(SRC) $(LIBFTPRINTF) -o $(NAME)
+		$(CC) $(CFLAGS) $(SRC) $(LIBFTPRINTF) -o $(NAME)
 
 git:
 	@git add -A
